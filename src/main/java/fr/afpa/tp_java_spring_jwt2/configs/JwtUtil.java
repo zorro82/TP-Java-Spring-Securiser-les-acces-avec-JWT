@@ -33,7 +33,7 @@ public class JwtUtil {
 
     // Récupérer le nom d'utilisateur depuis le token
     public String getUsernameFromToken(String token) {
-        Claims claims = Jwts.parserBuilder()
+        Claims claims = Jwts.builder()
                 .setSigningKey(getSigningKey())
                 .build()
                 .parseClaimsJws(token)
@@ -44,7 +44,7 @@ public class JwtUtil {
     // Vérifier si le token est valide
     public boolean validateToken(String token) {
         try {
-            Jwts.parserBuilder()
+            Jwts.builder()
                 .setSigningKey(getSigningKey())
                 .build()
                 .parseClaimsJws(token);
