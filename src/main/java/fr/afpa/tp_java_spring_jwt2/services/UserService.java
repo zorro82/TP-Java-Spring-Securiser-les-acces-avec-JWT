@@ -24,7 +24,7 @@ public class UserService implements UserDetailsService {
     // Méthode pour sauvegarder un utilisateur
     public User save(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return UserRepository.save(user);
+        return userRepository.save(user);
     }
 
     // Méthode pour charger un utilisateur par nom d'utilisateur
